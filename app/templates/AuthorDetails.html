@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Author Details{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ author.image_url }}" class="img-fluid rounded-start " alt="{{ author.name }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h1 class="card-title
+                    ">{{ author.name }}</h1>
+                    <p class="card-text"><strong>Books:</strong></p>
+                    <ul>
+                        {% for book in author.books %}
+                        <li>
+                            <span>{{ book.name }}</span>
+                            <a href="{{ url_for('main.book_details', book_id=book.id) }}" class="btn btn-primary">Book
+                                Details</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{{ url_for('main.books') }}" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

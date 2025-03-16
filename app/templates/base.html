@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{ bootstrap.load_css() }}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block styles %}
+
+    {% endblock styles %}
+
+    <title>
+        {% block title %}
+        Flask App
+        {% endblock title %}
+    </title>
+</head>
+
+<body>
+    {% include 'components/navbar.html' %}
+    <!-- Your page content -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Optional JavaScript -->
+    {{ bootstrap.load_js() }}
+
+</body>
+<footer>
+    {% include 'components/footer.html' %}
+</footer>
+
+</html>

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Add New Book{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Add a New Book</h2>
+    <form method="POST" action="{{ url_for('main.add_book') }}">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+            <label class="form-label">Book Name</label>
+            {{ form.name(class="form-control", placeholder="Enter book name") }}
+            {% for error in form.name.errors %}
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Publish Date</label>
+            {{ form.publish_date(class="form-control", type="date") }}
+            {% for error in form.publish_date.errors %}
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            {{ form.price(class="form-control", placeholder="Enter price") }}
+            {% for error in form.price.errors %}
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Age Category</label>
+            {{ form.age_category(class="form-select") }}
+            {% for error in form.age_category.errors %}
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Author</label>
+            {{ form.author(class="form-select") }}
+            {% for error in form.author.errors %}
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Image URL</label>
+            {{ form.image_url(class="form-control", placeholder="Enter image URL") }}
+            {% for error in form.image_url.errors %}
+            <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Book</button>
+    </form>
+</div>
+{% endblock %}

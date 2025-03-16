@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Author{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Add Author</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    <label class="form-label
+                    ">Author Name</label>
+                    {{ form.name(class="form-control", placeholder="Enter author name") }}
+                    {% for error in form.name.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-primary">Add Author</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
