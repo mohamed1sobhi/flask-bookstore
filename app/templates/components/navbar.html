@@ -18,7 +18,7 @@
                 </li>
                 <li class="nav-item">
                     <form method="POST" action="{{ url_for('main.add_book') }}" style="display: inline;">
-                        {{ CSRF }} <!-- CSRF Token (for Flask-WTF forms) -->
+                        {{ CSRF }}
                         <button type="submit" class="btn btn-link nav-link"
                             style="border: none; padding: 0; background: none;">
                             Add Book
@@ -27,12 +27,18 @@
                 </li>
                 <li class="nav-item">
                     <form method="POST" action="{{ url_for('main.add_author') }}" style="display: inline;">
-                        {{ CSRF }} <!-- CSRF Token (for Flask-WTF forms) -->
+                        {{ CSRF }}
                         <button type="submit" class="btn btn-link nav-link"
                             style="border: none; padding: 0; background: none;">
                             Add Author
                         </button>
                     </form>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-success me-2" href="{{ url_for('auth.login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary" href="{{ url_for('auth.register') }}">Register</a>
                 </li>
             </ul>
         </div>

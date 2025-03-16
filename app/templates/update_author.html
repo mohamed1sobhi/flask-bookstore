@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Update Author{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Update Author</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    <label class="form-label">Author Name</label>
+                    {{ form.name(class="form-control") }}
+                </div>
+
+                <form action="{{ url_for('main.update_author', author_id=author.id) }}" method="POST"
+                    style="display:inline;">
+                    <button type="submit" class="btn btn-warning">Update</button>
+                </form>
+
+                <a href="{{ url_for('main.books') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Update Book{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Update Book</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    <label class="form-label">Book Name</label>
+                    {{ form.name(class="form-control") }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Publish Date</label>
+                    {{ form.publish_date(class="form-control") }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Price</label>
+                    {{ form.price(class="form-control") }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Age Category</label>
+                    {{ form.age_category(class="form-select") }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Author</label>
+                    {{ form.author(class="form-select") }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Image URL</label>
+                    {{ form.image_url(class="form-control") }}
+                </div>
+
+                <button type="submit" class="btn btn-success">Update Book</button>
+                <a href="{{ url_for('main.books') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

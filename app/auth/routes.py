@@ -17,7 +17,7 @@ def register():
             password=form.password.data
         )
         user.save_to_db()
-        return redirect(url_for('login'))
+        return redirect(url_for('auth.login'))
     
     return render_template('auth/register.html', form=form)
 

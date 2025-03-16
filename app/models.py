@@ -26,7 +26,7 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
     
-    def save_to_db(self):  # ✅ Ensure this method exists
+    def save_to_db(self):
         db.session.add(self)
         db.session.commit()
 

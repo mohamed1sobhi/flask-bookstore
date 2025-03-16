@@ -23,6 +23,16 @@
                         </li>
                         {% endfor %}
                     </ul>
+                    <form action="{{ url_for('main.update_author', author_id=author.id) }}" method="POST"
+                        style="display:inline;">
+                        <button type="submit" class="btn btn-warning">Update</button>
+                    </form>
+
+                    <form action="{{ url_for('main.delete_author', author_id=author.id) }}" method="POST"
+                        style="display:inline;">
+                        <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Are you sure?');">Delete</button>
+                    </form>
                     <a href="{{ url_for('main.books') }}" class="btn btn-secondary">Back to List</a>
                 </div>
             </div>

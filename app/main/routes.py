@@ -80,5 +80,33 @@ def update_book(book_id):
         book.age_category = form.age_category.data
         book.author_id = form.author.data
         db.session.commit()
-        return redirect(url_for('books.html'))
-    return render_template('add_book.html', form=form)
+        return redirect(url_for('main.books'))
+    return render_template('update_book.html', form=form)
+
+
+@main_blueprint.route('/book/delete/<int:book_id>', methods=['POST'])
+def delete_book(book_id):
+    book = Book.query.get_or_404(book_id)
+    db.session.delete(book)
+    db.session.commit()
+    return redirect(url_for('main.books'))
+
+
+
+@main_blueprint.route('/author/update/<int:author_id>', methods=['GET', 'POST'])
+def update_author(author_id):
+    author = Author.query.get_or_404(author_id)
+    form = AddAuthorForm(obj=author)
+    if form.validate_on_submit():
+        author.name = form.name.data
+        db.session.commit()
+        return redirect(url_for('main.books'))
+    return render_template('update_author.html', form=form, author=author)
+
+
+@main_blueprint.route('/author/delete/<int:author_id>', methods=['POST'])
+def delete_author(author_id):
+    author = Author.query.get_or_404(author_id)
+    db.session.delete(author)
+    db.session.commit()
+    return redirect(url_for('main.books'))
